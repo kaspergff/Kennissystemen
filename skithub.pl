@@ -45,11 +45,33 @@ colour(amster_radler,light).
 colour(grolsch_kanon,medium).
 colour(hertog_jan_weizener,light).
 %Clarity of the beer
-clarity().
+clarity(heineken_pils,7).
+clarity(grolsch_herfstbok,75).
+clarity(grolsch_lentebok,75).
+clarity(guinnes_ale,130).
+clarity(de_klok,7).
+clarity(duvel,5.7).
+clarity(lindemans_kriek,39).
+clarity(neude_wit,8).
+clarity(kwak,7).
+clarity(amster_radler,3.5).
+clarity(grolsch_kanon,15).
+clarity(hertog_jan_weizener,12).
 %Aftertaste...
 aftertaste().
-%Bitterness...
-bitterness().
+%Bitterness...IBU
+bitterness(heineken_pils,small).
+bitterness(grolsch_herfstbok,medium).
+bitterness(grolsch_lentebok,,medium).
+bitterness(guinnes_ale,small).
+bitterness(de_klok, small).
+bitterness(duvel, medium).
+bitterness(lindemans_kriek, small).
+bitterness(neude_wit, small).
+bitterness(kwak, small).
+bitterness(amster_radler, small).
+bitterness(grolsch_kanon, high).
+bitterness(hertog_jan_weizener, medium).
 %Body...
 body().
 %Mouthfeel...
