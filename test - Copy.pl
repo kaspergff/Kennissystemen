@@ -48,10 +48,6 @@ describe_beer(amster_radler) :-
 
 
 
-
-
-
-
 % Assigns an answer to questions from the knowledge base
 alcohol(Answer) :-
   progress(alcohol, Answer).
