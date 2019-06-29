@@ -1,17 +1,16 @@
 
 
 %TO DO
-% 1. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
-%    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
-% 2. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt.
-% 3. Vertaal 'turbid' ff goed. het moet 'doorzichtigheid' danwel ondoorzichtigheid betekenen.
-% 4. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen.
+% 1. het invullen van de taste,smell en foam parameters van alle biertjes.
 %    Dus: Heineken pils
 %    alcohol(medium_alcohol)
 %    colour(light)
-%    clarity(little_turbid)
+%    clarity(high_transparency)
 %    enz....
-% 5. het invullen van de taste,smell en foam parameters van alle biertjes.
+% 2. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
+%    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
+% 3. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt.
+% 4. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen.
 
 
 main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(Bier).
@@ -52,7 +51,7 @@ brewery/1.
 bier(heineken_pils) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -64,7 +63,7 @@ bier(heineken_pils) :-
 bier(heineken_pils_0) :-
     alcohol(none),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -76,7 +75,7 @@ bier(heineken_pils_0) :-
 bier(bavaria_pils) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -88,7 +87,7 @@ bier(bavaria_pils) :-
 bier(hertog_jan_pils) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -100,7 +99,7 @@ bier(hertog_jan_pils) :-
 bier(grolsch_herfstbok):-
     alcohol(medium_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(medium),
     season(autumn),
     % taste(),
@@ -112,7 +111,7 @@ bier(grolsch_herfstbok):-
 bier(grolsch_lentebok):-
     alcohol(medium_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(medium),
     season(spring),
     % taste(),
@@ -124,7 +123,7 @@ bier(grolsch_lentebok):-
 bier(guinness_ale):-
     alcohol(medium_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -136,7 +135,7 @@ bier(guinness_ale):-
 bier(de_klok_pils):-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -148,7 +147,7 @@ bier(de_klok_pils):-
 bier(duvel):-
     alcohol(high_alcohol),
     colour(medium),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -160,7 +159,7 @@ bier(duvel):-
 bier(lindemans_kriek) :-
     alcohol(low_alcohol),
     colour(red),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -172,7 +171,7 @@ bier(lindemans_kriek) :-
 bier(neude_wit) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -184,7 +183,7 @@ bier(neude_wit) :-
 bier(kwak) :-
     alcohol(high_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -196,7 +195,7 @@ bier(kwak) :-
 bier(amstel_radler) :-
     alcohol(low_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -208,7 +207,7 @@ bier(amstel_radler) :-
 bier(grolsch_kanon) :-
     alcohol(high_alcohol),
     colour(medium),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -220,7 +219,7 @@ bier(grolsch_kanon) :-
 bier(hertog_jan_weizener) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(high),
     season(summer),
     % taste(),
@@ -232,7 +231,7 @@ bier(hertog_jan_weizener) :-
 bier(achel_extra_blond) :-
     alcohol(high_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -244,7 +243,7 @@ bier(achel_extra_blond) :-
 bier(achel_extra_bruin) :-
     alcohol(high_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(high),
     season(none),
     % taste(),
@@ -257,7 +256,7 @@ bier(achel_extra_bruin) :-
 %bier(old_ale) :-
 %    alcohol(medium_alcohol),
 %    colour(dark),
-%    clarity(medium_turbid),
+%    clarity(medium_transparency),
 %    bitterness(medium),
 %    season(winter),
 %    taste(),
@@ -270,7 +269,7 @@ bier(achel_extra_bruin) :-
 %bier(bières_de_noël) :-
 %    alcohol(high_alcohol),
 %    colour(dark),
-%    clarity(little_turbid),
+%    clarity(high_transparency),
 %    bitterness(high),
 %    season(winter),
 %    taste(),
@@ -282,7 +281,7 @@ bier(achel_extra_bruin) :-
 bier(anchor_porter) :-
     alcohol(medium_alcohol),
     colour(dark),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(low),
     season(winter),
     % taste(),
@@ -294,7 +293,7 @@ bier(anchor_porter) :-
 bier(straffe_hendrik_quadrupel) :-
     alcohol(high_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(high),
     season(none),
     % taste(),
@@ -306,7 +305,7 @@ bier(straffe_hendrik_quadrupel) :-
 bier(speciale_palm) :-
     alcohol(medium_alcohol),
     colour(red),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -318,7 +317,7 @@ bier(speciale_palm) :-
 bier(desperados) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -330,7 +329,7 @@ bier(desperados) :-
 bier(corona) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -342,7 +341,7 @@ bier(corona) :-
 bier(boon_geuze) :-
     alcohol(high_alcohol),
     colour(red),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -354,7 +353,7 @@ bier(boon_geuze) :-
 bier(vedett_extra_white) :-
     alcohol(medium_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -366,7 +365,7 @@ bier(vedett_extra_white) :-
 bier(kasteel_donker) :-
     alcohol(high_alcohol),
     colour(dark),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(high),
     season(none),
     % taste(),
@@ -378,7 +377,7 @@ bier(kasteel_donker) :-
 bier(chimay_blauw) :-
     alcohol(high_alcohol),
     colour(dark),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -390,7 +389,7 @@ bier(chimay_blauw) :-
 bier(chimay_tripel_wit) :-
     alcohol(high_alcohol),
     colour(light),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -402,7 +401,7 @@ bier(chimay_tripel_wit) :-
 bier(ij_natte) :-
     alcohol(medium_alcohol),
     colour(medium),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -414,7 +413,7 @@ bier(ij_natte) :-
 bier(hertog_jan_lentebock) :-
     alcohol(medium_alcohol),
     colour(medium),
-    clarity(lots_turbid),
+    clarity(low_transparency),
     bitterness(medium),
     season(spring),
     % taste(),
@@ -426,7 +425,7 @@ bier(hertog_jan_lentebock) :-
 bier(bax_rokkenjager) :-
     alcohol(high_alcohol),
     colour(dark),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(medium),
     season(spring),
     % taste(),
@@ -438,7 +437,7 @@ bier(bax_rokkenjager) :-
 bier(gulpener_ijsbock) :-
     alcohol(high_alcohol),
     colour(medium),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(low),
     season(winter),
     % taste(),
@@ -450,7 +449,7 @@ bier(gulpener_ijsbock) :-
 bier(brewdog_dead_pony_club) :-
     alcohol(low_alcohol),
     colour(medium),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -462,7 +461,7 @@ bier(brewdog_dead_pony_club) :-
 bier(brand_session_india_pale_ale) :-
     alcohol(low_alcohol),
     colour(medium),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -474,7 +473,7 @@ bier(brand_session_india_pale_ale) :-
 bier(punk_ipa_pale_ale) :-
     alcohol(medium_alcohol),
     colour(medium),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(medium),
     season(none),
     % taste(),
@@ -486,7 +485,7 @@ bier(punk_ipa_pale_ale) :-
 bier(guinness_stout_original) :-
     alcohol(medium_alcohol),
     colour(dark),
-    clarity(medium_turbid),
+    clarity(medium_transparency),
     bitterness(low),
     season(none),
     % taste(),
@@ -498,7 +497,7 @@ bier(guinness_stout_original) :-
 bier(apple_bandit_cider_crisp_apple) :-
     alcohol(medium_alcohol),
     colour(medium),
-    clarity(little_turbid),
+    clarity(high_transparency),
     bitterness(low),
     season(summer),
     % taste(),
@@ -510,7 +509,7 @@ bier(apple_bandit_cider_crisp_apple) :-
 %questions, dnek ff goed na over de volgorde van de vragen
 question(alcohol):- write('How much alcohol do you want?'),nl.
 question(colour):- write('What colour would you like your beer to have?'),nl.
-question(clarity):- write('Would you like a turbid beer?'),nl.
+question(clarity):- write('Would you like a transparent beer?'),nl.
 question(bitterness):- write('would you like a bitter beer?'),nl.
 question(season):- write('for which season would you like an appropriate beer?'),nl.
 question(region) :- write('from which region would you like a beer?'),nl.
@@ -533,9 +532,9 @@ answer(high):- write('high').
 answer(red):- write('red').
 answer(light) :- write('light').
 answer(dark) :- write('dark').
-answer(little_turbid) :- write('little turbid').
-answer(medium_turbid) :- write('medium turbid').
-answer(lots_turbid) :- write('high turbid').
+answer(high_transparency) :- write('high transparency').
+answer(medium_transparency) :- write('medium transparency').
+answer(low_transparency) :- write('low transparency').
 answer(summer):- write('summer').
 answer(autumn):- write('autumn').
 answer(spring):- write('spring').
@@ -599,7 +598,7 @@ clarity(Answer) :-
   progress(clarity, Answer).
 clarity(Answer) :-
   \+ progress(clarity, _),
-  ask(clarity, Answer, [little_turbid,medium_turbid,lots_turbid]).
+  ask(clarity, Answer, [high_transparency,medium_transparency,low_transparency]).
 
 bitterness(Answer):-
   progress(bitterness,Answer).
