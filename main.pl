@@ -1,3 +1,9 @@
+
+
+
+%Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
+%en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
+
 main :- intro, reset_answers, find_beer(Bier),describe(Bier).
 intro :-
   write('welcome to the beer suggestion program'), nl,
@@ -20,6 +26,9 @@ clarity/1.
 bitterness/1.
 region/1.
 season/1.
+taste/1
+smell/1
+brewery/1
 
 bier(heineken_pils) :-
     alcohol(medium_alcohol),
@@ -27,6 +36,10 @@ bier(heineken_pils) :-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(heineken),
+    foam(),
     region(holland).
 	
 bier(bavaria_pils) :-
@@ -35,6 +48,10 @@ bier(bavaria_pils) :-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(bavaria),
+    foam(),
     region(holland).
 
 bier(hertog_jan_pils) :-
@@ -43,6 +60,10 @@ bier(hertog_jan_pils) :-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(hertog_jan),
+    foam(),
     region(holland).
 
 bier(grolsch_herfstbok):-
@@ -51,6 +72,10 @@ bier(grolsch_herfstbok):-
     clarity(lots_turbid),
     bitterness(medium),
     season(autumn),
+    taste(),
+    smell(),
+    brewery(grolsch),
+    foam(),
     region(holland).
 
 bier(grolsch_lentebok):-
@@ -59,22 +84,34 @@ bier(grolsch_lentebok):-
     clarity(lots_turbid),
     bitterness(medium),
     season(spring),
+    taste(),
+    smell(),
+    brewery(grolsch),
+    foam(),
     region(holland).
 
-bier(guinnes_ale):-
+bier(guinness_ale):-
     alcohol(medium_alcohol),
     colour(dark),
     clarity(lots_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(guinness),
+    foam(),
     region(ireland).
 
-bier(de_klok):-
+bier(de_klok_pils):-
     alcohol(medium_alcohol),
     colour(light),
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(de_klok),
+    foam(),
     region(holland).
 
 bier(duvel):-
@@ -83,6 +120,10 @@ bier(duvel):-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(duvel_brewery),
+    foam(),
     region(belgium).
 
 bier(lindemans_kriek) :-
@@ -91,6 +132,10 @@ bier(lindemans_kriek) :-
     clarity(lots_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(lindemans),
+    foam(),
     region(belgium).
 
 bier(neude_wit) :-
@@ -99,6 +144,10 @@ bier(neude_wit) :-
     clarity(medium_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(?),
+    foam(),
     region(holland).
 
 bier(kwak) :-
@@ -107,14 +156,22 @@ bier(kwak) :-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(bosteels),
+    foam(),
     region(belgium).
 
-bier(amster_radler) :-
+bier(amstel_radler) :-
     alcohol(low_alcohol),
     colour(light),
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(amstel),
+    foam(),
     region(holland).
 
 bier(grolsch_kanon) :-
@@ -123,6 +180,10 @@ bier(grolsch_kanon) :-
     clarity(medium_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(grolsch),
+    foam(),
     region(holland).
 
 bier(hertog_jan_weizener) :-
@@ -131,6 +192,10 @@ bier(hertog_jan_weizener) :-
     clarity(medium_turbid),
     bitterness(high),
     season(summer),
+    taste(),
+    smell(),
+    brewery(hertog_jan),
+    foam(),
     region(holland).
 	
 bier(achel_extra_blond) :-
@@ -139,6 +204,10 @@ bier(achel_extra_blond) :-
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(achel),
+    foam(),
     region(belgium).
 	
 bier(achel_extra_bruin) :-
@@ -147,23 +216,37 @@ bier(achel_extra_bruin) :-
     clarity(lots_turbid),
     bitterness(high),
     season(none),
+    taste(),
+    smell(),
+    brewery(achel),
+    foam(),
     region(belgium).
 
-bier(old_ale) :-
-    alcohol(medium_alcohol),
-    colour(dark),
-    clarity(medium_turbid),
-    bitterness(medium),
-    season(winter),
-    region(england).
+%van welk merk is deze?
+%bier(old_ale) :-
+%    alcohol(medium_alcohol),
+%    colour(dark),
+%    clarity(medium_turbid),
+%    bitterness(medium),
+%    season(winter),
+%    taste(),
+%    smell(),
+%    brewery(),
+%    foam(),
+%    region(england).
 
-bier(bières_de_noël) :-
-    alcohol(high_alcohol),
-    colour(dark),
-    clarity(little_turbid),
-    bitterness(high),
-    season(winter),
-    region(france).
+%same voor deze
+%bier(bières_de_noël) :-
+%    alcohol(high_alcohol),
+%    colour(dark),
+%    clarity(little_turbid),
+%    bitterness(high),
+%    season(winter),
+%    taste(),
+%    smell(),
+%    brewery(),
+%    foam(),
+%    region(france).
 
 bier(anchor_porter) :-
     alcohol(medium_alcohol),
@@ -171,6 +254,10 @@ bier(anchor_porter) :-
     clarity(medium_turbid),
     bitterness(low),
     season(winter),
+    taste(),
+    smell(),
+    brewery(anchor),
+    foam(),
     region(england).
 
 bier(straffe_hendrik_quadrupel) :-
@@ -179,6 +266,10 @@ bier(straffe_hendrik_quadrupel) :-
     clarity(lots_turbid),
     bitterness(high),
     season(none),
+    taste(),
+    smell(),
+    brewery(straffe_hendrik),
+    foam(),
     region(belgium).
 
 bier(speciale_palm) :-
@@ -187,6 +278,10 @@ bier(speciale_palm) :-
     clarity(little_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(palm),
+    foam(),
     region(belgium).
 
 bier(desperados) :-
@@ -195,6 +290,10 @@ bier(desperados) :-
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(heineken),
+    foam(),
     region(mexico).
 
 bier(corona) :-
@@ -203,6 +302,10 @@ bier(corona) :-
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(cornona),
+    foam(),
     region(mexico).
 
 bier(boon_geuze) :-
@@ -211,6 +314,10 @@ bier(boon_geuze) :-
     clarity(little_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(boon),
+    foam(),
     region(belgium).
 
 bier(vedett_extra_white) :-
@@ -219,6 +326,10 @@ bier(vedett_extra_white) :-
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(vedett),
+    foam(),
     region(belgium).
 
 bier(kasteel_donker) :-
@@ -227,6 +338,10 @@ bier(kasteel_donker) :-
     clarity(little_turbid),
     bitterness(high),
     season(none),
+    taste(),
+    smell(),
+    brewery(kasteel),
+    foam(),
     region(belgium).
 
 bier(chimay_blauw) :-
@@ -235,6 +350,10 @@ bier(chimay_blauw) :-
     clarity(lots_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(chimay),
+    foam(),
     region(belgium).
 
 bier(chimay_tripel_wit) :-
@@ -243,6 +362,10 @@ bier(chimay_tripel_wit) :-
     clarity(little_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(chimay),
+    foam(),
     region(belgium).
 
 bier(ij_natte) :-
@@ -251,6 +374,10 @@ bier(ij_natte) :-
     clarity(medium_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(brouwerij_t_IJ),
+    foam(),
     region(belgium).
 
 bier(hertog_jan_lentebock) :-
@@ -259,6 +386,10 @@ bier(hertog_jan_lentebock) :-
     clarity(lots_turbid),
     bitterness(medium),
     season(spring),
+    taste(),
+    smell(),
+    brewery(hertog_jan),
+    foam(),
     region(holland).
 
 bier(bax_rokkenjager) :-
@@ -267,6 +398,10 @@ bier(bax_rokkenjager) :-
     clarity(medium_turbid),
     bitterness(medium),
     season(spring),
+    taste(),
+    smell(),
+    brewery(bax),
+    foam(),
     region(holland).
 
 bier(gulpener_ijsbock) :-
@@ -275,6 +410,10 @@ bier(gulpener_ijsbock) :-
     clarity(medium_turbid),
     bitterness(low),
     season(winter),
+    taste(),
+    smell(),
+    brewery(gulpener),
+    foam(),
     region(holland).
 
 bier(brewdog_dead_pony_club) :-
@@ -283,6 +422,10 @@ bier(brewdog_dead_pony_club) :-
     clarity(little_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(brewdog),%is dit de juiste brouwerij?
+    foam(),
     region(california).
 
 bier(brand_session_india_pale_ale) :-
@@ -291,6 +434,10 @@ bier(brand_session_india_pale_ale) :-
     clarity(medium_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(brouwerij),
+    foam(),
     region(california).
 
 bier(punk_ipa_pale_ale) :-
@@ -299,14 +446,22 @@ bier(punk_ipa_pale_ale) :-
     clarity(little_turbid),
     bitterness(medium),
     season(none),
+    taste(),
+    smell(),
+    brewery(brewdog),
+    foam(),
     region(california).
 
 bier(guinness_stout_original) :-
-    alcohol(medium),
+    alcohol(medium_alcohol),
     colour(dark),
     clarity(medium_turbid),
     bitterness(low),
     season(none),
+    taste(),
+    smell(),
+    brewery(guinness),
+    foam(),
     region(ireland).
 
 bier(apple_bandit_cider_crisp_apple) :-
@@ -315,6 +470,10 @@ bier(apple_bandit_cider_crisp_apple) :-
     clarity(little_turbid),
     bitterness(low),
     season(summer),
+    taste(),
+    smell(),
+    brewery(apple_bandit),
+    foam(),
     region(holland).
 
 %questions, dnek ff goed na over de volgorde van de vragen
@@ -356,6 +515,9 @@ answer(belgium):- write('Belgium').
 answer(ireland):- write('Ireland').
 answer(california):- write('California').
 answer(france):- write('France').
+answer(mexico):- write('Mexico').
+answer(england):- write('England').
+
 %voeg antoorden toe voor [brewery,smell,foam,taste]
 
 %REGION ANSWERS MOETEN GAAN BESTAAN UIT DE BESCHIKBARE MOGELIJKHEDEN!!!!! ANDERS GAAT DE INFERENCE NIET LOSSTAAN VAN DE KB!!!!
@@ -396,7 +558,7 @@ region(Answer) :-
   progress(region,Answer).
 region(Answer) :-
 \+ progress(region, _),
-  ask(region, Answer, [holland,belgium,ireland,france,california]).
+  ask(region, Answer, [holland,belgium,ireland,france,california,mexico,england]).
 
 %  smell(Answer) :-
 %  progress(smell,Answer).
@@ -433,19 +595,19 @@ describe(heineken_pils):- write('Heineken pils'),nl.
 describe(grolsch_herfstbok):- write('Grolsch herfstbok'),nl.
 describe(grolsch_lentebok):- write('Grolsch lentebok'),nl.
 describe(grolsch_kanon):- write('Grolsch kanon'),nl.
-describe(guinnes_ale):- write('Guinnes ale'),nl.
-describe(de_klok):- write('De klok bier'),nl.
+describe(guinness_ale):- write('Guinnes ale'),nl.
+describe(de_klok_pils):- write('De klok bier'),nl.
 describe(duvel):- write('Duvel'),nl.
 describe(lindemans_kriek):- write('Lindemans kriek'),nl.
 describe(neude_wit):- write('Neude wit'),nl.
-describe(kwak):- write('Kwak'),nl.
-describe(amster_radler):- write('Amstel radler'),nl.
+describe(kwak):- write('Pauwel kwak'),nl.
+describe(amstel_radler):- write('Amstel radler'),nl.
 describe(hertog_jan_weizener):- write('Hertog Jan weizener'),nl.
 describe(bavaria_pils):- write('Bavaria pils'),nl.
 describe(achel_extra_blond):- write('Achel extra blond'),nl.
 describe(achel_extra_bruin):- write('Achel extra bruin'),nl.
-describe(old_ale):- write('old ale'),nl.
-describe(bières_de_noël):- write('bières de noël'),nl.
+describe(old_ale):- write('Old ale'),nl.
+describe(bières_de_noël):- write('Bières de noël'),nl.
 describe(anchor_porter):- write('Anchor porter'),nl.
 describe(straffe_hendrik_quadrupel):- write('Straffe hendrik quadrupel'),nl.
 describe(speciale_palm):- write('Speciale palm'),nl.
@@ -463,7 +625,7 @@ describe(brewdog_dead_pony_club):- write('Brewdog dead pony club'),nl.
 describe(brand_session_india_pale_ale):- write('Brand session indiana pale ale'),nl. 
 describe(punk_ipa_pale_ale) :- write('Punk ipa pale ale'),nl.
 describe(guinness_stout_original):- write('Guinness stout original'),nl.
-describe(apple_bandit_cider_crisp_apple):- write('apple bandit cider crisp apple'),nl. 
+describe(apple_bandit_cider_crisp_apple):- write('Apple bandit cider crisp apple'),nl. 
 
 % Parses an Index and returns a Response representing the "Indexth" element in
 % Choices (the [First|Rest] list)
