@@ -6,7 +6,7 @@
 % 2. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
 %    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
 % 3. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt.
-% 4. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen.
+% 4. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen (ben hiermee aan het prutsen in 'getdetails').
 %    Dus: Heineken pils
 %    alcohol(medium_alcohol)
 %    colour(light)
@@ -14,19 +14,21 @@
 %    enz....
 
 
-main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(Bier).
+main :- intro, reset_answers, find_beer(Bier),describe(Bier).%getdetails().
 intro :-
   write('welcome to the beer suggestion program'), nl,
   write('To answer, input the number shown next to each answer, followed by a dot (.)'), nl, nl.
 
-% getdetails(X):-
-% write(alcohol(X)),nl,
-% write(colour(X)),nl,
-% write(clarity(X)),nl,
-% write(bitterness(X)),nl,
-% write(region(X)),nl,
-% write(season(X)),nl,
-% write(brewery(X)).
+% getdetails():-
+% write(alcohol(bier(X))),nl,
+% write(colour(bier(X))),nl,
+% write(clarity(bier(X))),nl,
+% write(bitterness(bier(X))),nl,
+% write(region(bier(X))),nl,
+% write(season(bier(X))),nl,
+% write(brewery(bier(X))).
+
+
 
 reset_answers :-
   retract(progress(_, _)),
