@@ -7,7 +7,7 @@
 % 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!!
 % 3. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
 %    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
-% 4. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt.
+% 4. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt ben hier al eens mee bezig geweest in 'go_back'.
 % 5. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen (ben hiermee aan het prutsen in 'getdetails').
 %    Dus: Heineken pils
 %    alcohol(medium_alcohol)
@@ -34,6 +34,13 @@ reset_answers :-
   retract(progress(_, _)),
   fail.
 reset_answers.
+
+% go_back(Bier,Question)
+%     retract(progress(Question, _)),
+%     question(Question),
+%     bier(Bier),
+%      \+ find_beer(Bier).
+
 
 find_beer(Bier) :-
   bier(Bier), !.
@@ -527,7 +534,8 @@ question(brewery):- write('from which brewery would you like a beer?'),nl.
 %question(taste) :-write('what kind of taste would you like your beer to have?'),nl.
 %answers
 answer(low_alcohol):- write('low alcohol pecentage, 0.5-3%').
-answer(medium_alcohol):-write('medium alcohol percentage, 3-7%').
+answer(medium_alcohol):-write('medium a
+lcohol percentage, 3-7%').
 answer(high_alcohol):- write('high alcohol percentage, >7%').
 answer(low):- write('low').
 answer(medium):-write('medium').
@@ -543,6 +551,7 @@ answer(autumn):- write('autumn').
 answer(spring):- write('spring').
 answer(winter):- write('winter').
 answer(none):- write('none').
+%countries/regions
 answer(holland):- write('Holland').
 answer(belgium):- write('Belgium').
 answer(ireland):- write('Ireland').
