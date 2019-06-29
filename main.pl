@@ -2,16 +2,16 @@
 
 %TO DO
 % 1. het invullen van de taste,smell en foam parameters van alle biertjes.
-%    Dus: Heineken pils
-%    alcohol(medium_alcohol)
-%    colour(light)
-%    clarity(high_transparency)
-%    enz....
 % 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn.
 % 2. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
 %    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
 % 3. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt.
 % 4. Denk na over een methode om aan het einde zodra een biertje aangeboden word de kb gegevens daarbij te krijgen.
+%    Dus: Heineken pils
+%    alcohol(medium_alcohol)
+%    colour(light)
+%    clarity(high_transparency)
+%    enz....
 
 
 main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(Bier).
