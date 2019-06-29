@@ -28,8 +28,6 @@ intro :-
 % write(season(X)),nl,
 % write(brewery(X)).
 
-
-
 reset_answers :-
   retract(progress(_, _)),
   fail.
@@ -179,7 +177,7 @@ bier(neude_wit) :-
     season(none),
     % taste(),
     % smell(),
-    brewery(?),
+    brewery(neude_bier),
     % foam(),
     region(holland).
 
@@ -551,17 +549,17 @@ answer(france):- write('France').
 answer(mexico):- write('Mexico').
 answer(england):- write('England').
 %breweries
-answer(heineken_brewery):- write('Heineken').
-answer(bavaria_brewery):- write('Bavaria').
-answer(hertog_jan_brewery):- write('Hertog Jan').
-answer(guinness_brewery):- write('Guinness').
+answer(heineken_brewery):- write('Heineken brouwerij').
+answer(bavaria_brewery):- write('Bavaria brouwerij').
+answer(hertog_jan_brewery):- write('Hertog Jan brouwerij').
+answer(guinness_brewery):- write('Guinness brouwerij').
 answer(de_klok_brewery):- write('De Klok brouwerij').
-answer(lindemans):- write('Lindemans').
-answer(grolsch_brewery):- write('Grolsch').
+answer(lindemans):- write('Lindemans brouwerij').
+answer(grolsch_brewery):- write('Grolsch brouwerij').
 answer(duvel_brewery):- write('Duvel brouwerij').
-answer(?):- write('Geen idee welke brouwerij deze is').
+answer(neude_bier):- write('Neude bier brouwerij').
 answer(bosteels):- write('Bosteels').
-answer(amstel):- write('Amstel').
+answer(amstel):- write('Amstel brouwerij').
 answer(achel):- write('Achel').
 answer(anchor):- write('Anchor').
 answer(straffe_hendrik):- write('Straffe Hendrik').
@@ -595,7 +593,7 @@ colour(Answer) :-
   progress(colour,Answer).
 colour(Answer) :-
     \+ progress(colour, _),
-  ask(colour, Answer, [light,medium,red,dark]).
+  ask(colour, Answer, [light,medium,dark,red]).
 
 clarity(Answer) :-
   progress(clarity, Answer).
@@ -613,7 +611,7 @@ season(Answer) :-
   progress(season,Answer).
 season(Answer) :-
 \+ progress(season, _),
-  ask(season, Answer, [winter,spring,summer,autumn,none]).
+  ask(season, Answer, [none,winter,spring,summer,autumn]).
 
 region(Answer) :-
   progress(region,Answer).
@@ -621,6 +619,7 @@ region(Answer) :-
 \+ progress(region, _),
   ask(region, Answer, [holland,belgium,ireland,france,california,mexico,england]).
 
+%onderstaande is gecomment omdat de smell,foam en taste parameters nog niet zijn ingevuld
 %  smell(Answer) :-
 %  progress(smell,Answer).
 %smell(Answer) :-
@@ -643,7 +642,7 @@ brewery(Answer) :-
 progress(brewery,Answer).
 brewery(Answer) :-
 \+ progress(brewery, _),
-  ask(brewery, Answer,[ ?,achel,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,palm,straffe_hendrik,vedett]).
+  ask(brewery, Answer,[achel,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,neude_bier,palm,straffe_hendrik,vedett]).
 
   % [First|Rest] is the Choices list, Index is the index of First in Choices
 answers([], _).
