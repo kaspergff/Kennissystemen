@@ -1,6 +1,7 @@
 
 
 %TO DO
+% allereerst: check ff de 'old_ale' & 'bières_de_noël' daar staan wat comments bij.
 % 1. het invullen van de taste,smell en foam parameters van alle biertjes.
 % 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn.
 % 2. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
@@ -14,12 +15,12 @@
 %    enz....
 
 
-main :- intro, reset_answers, find_beer(Bier),describe(Bier).%getdetails().
+main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(X).
 intro :-
   write('welcome to the beer suggestion program'), nl,
   write('To answer, input the number shown next to each answer, followed by a dot (.)'), nl, nl.
 
-% getdetails():-
+%getdetails(X):-
 % write(alcohol(bier(X))),nl,
 % write(colour(bier(X))),nl,
 % write(clarity(bier(X))),nl,
@@ -27,8 +28,6 @@ intro :-
 % write(region(bier(X))),nl,
 % write(season(bier(X))),nl,
 % write(brewery(bier(X))).
-
-
 
 reset_answers :-
   retract(progress(_, _)),
