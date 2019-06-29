@@ -700,7 +700,9 @@ parse(Index, [First|Rest], Response) :-
 
 % Asks the Question to the user and saves the Answer
 ask(Question, Answer, Choices) :-
+    nl,
   question(Question),
+    nl,
   answers(Choices, 0),
   read(Index),
   parse(Index, Choices, Response),
