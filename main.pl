@@ -1,5 +1,3 @@
-
-
 %TO DO
 % 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn. Stannnn
 % 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!! keen idee
@@ -12,8 +10,6 @@
 %    colour(light)
 %    clarity(high_transparency)
 %    enz....
-
-
 main :- intro, reset_answers, find_beer(Bier),outro(Bier).
 intro :-
   write('welcome to the beer suggestion program'), nl,
@@ -45,7 +41,6 @@ outro(Bier) :-
   write('If this beer is not really what your looking for type "go_back_(Bier)." to go back one step.'),nl,
   write('Or restart the entire process by typing "main." in the constole.').
 
-
 parse(0, [H|_], H).
 parse(Index, [H|T], Response) :-
   Index > 0,
@@ -70,15 +65,70 @@ ask(Question, Answer, Choices) :-
   asserta(progress(Question, Response)),
   Response = Answer.
 
-%Bierelier....
 alcohol/1.
 colour/1.
 clarity/1.
 bitterness/1.
 region/1.
 season/1.
+foam/1
 taste/1.
 brewery/1.
+
+bier(bavaria_radler)) :-
+    alcohol(low_alcohol),
+    colour(light),
+    clarity(high_transparency),
+    bitterness(low),
+    season(summer),
+    taste(refreshing),     
+    brewery(bavaria_brewery),
+    foam(low),
+    region(holland).
+
+bier(duvel_triple_hop) :-
+    alcohol(high_alcohol),
+    colour(medium),
+    clarity(medium_transparency),
+    bitterness(low),
+    season(none),
+    taste(bitter),     
+    brewery(duvel_brewery),
+    foam(medium),
+    region(belgium).
+
+bier(amstel_pils) :-
+    alcohol(medium_alcohol),
+    colour(light),
+    clarity(low_transparency),
+    bitterness(low),
+    season(none),
+    taste(bitter),     
+    brewery(amstel),
+    foam(low),
+    region(holland).
+
+bier(grolsch_radler) :-
+    alcohol(low_alcohol),
+    colour(light),
+    clarity(medium_transparency),
+    bitterness(low),
+    season(summer),
+    taste(refreshing),     
+    brewery(grolsch_brewery),
+    foam(low),
+    region(holland).
+
+bier(heineken_radler) :-
+    alcohol(low_alcohol),
+    colour(light),
+    clarity(medium_transparency),
+    bitterness(low),
+    season(summer),
+    taste(refreshing),     
+    brewery(heineken_brewery),
+    foam(low),
+    region(holland).
 
 bier(heineken_pils) :-
     alcohol(medium_alcohol),
@@ -507,11 +557,7 @@ question(season):- write('For which season would you like an appropriate beer?')
 question(taste):- write('Which general taste do desire in your beer?'),nl.
 question(region) :- write('From which region would you like a beer?'),nl.
 question(brewery):- write('From which brewery would you like a beer?'),nl.
-%smell, werkt nu niet niet omdat de biertjes geen smell property hebben.-> deze vraag is echt wack
-%question(smell):- write('what smell do you prefer for your beer?'),nl.
 question(foam) :- write('How much foam would you like your beer to have?'),nl.
-%taste, werkt nu niet niet omdat de biertjes geen taste property hebben.
-%question(taste) :-write('what kind of taste would you like your beer to have?'),nl.
 %answers
 answer(low_alcohol):- write('Low alcohol pecentage, 0.5-3%').
 answer(medium_alcohol):-write('Medium alcohol percentage, 3-7%').
@@ -572,13 +618,6 @@ answer(gulpener):- write('Gulpener').
 answer(brewdog):- write('Brewdog').
 answer(apple_bandit):- write('Apple bandit').
 answer(brand):- write('brand brouwerij').
-
-
-%voeg antoorden toe voor [brewery,smell,foam,taste]
-
-%REGION ANSWERS MOETEN GAAN BESTAAN UIT DE BESCHIKBARE MOGELIJKHEDEN!!!!! ANDERS GAAT DE INFERENCE NIET LOSSTAAN VAN DE KB!!!!
-%Gaat ons naar alle waarschijnlijkheid niet lukken..... je kan ook geen arithmetic enzo meer doen op een of andere manier
-%Probeer maar eens met alcohol(X)
 % Assigns an answer to questions from the knowledge base
 alcohol(Answer) :-
   progress(alcohol, Answer).
