@@ -38,16 +38,15 @@ reset_answers :-
   fail.
 reset_answers.
 
-%it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of question
+%it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of questions.
+%once the questions are going in another order then before you know that there is not a beer that fullfills all requirements.
 go_back(Bier) :-
     retract(progress(X, _)),
     bier(Bier),
     outro(Bier).
 
 find_beer(Bier) :-
-  bier(Bier), !.
-
-  :- dynamic(progress/2).
+  bier(Bier), !.:- dynamic(progress/2).
 
 outro(Bier) :-
   write('Based on your answers we propose the following beer:'),nl,nl,
