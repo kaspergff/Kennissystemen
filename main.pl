@@ -2,7 +2,7 @@
 
 %TO DO
 % allereerst: check ff de 'old_ale' & 'bières_de_noël' daar staan wat comments bij.
-% 1. het invullen van de taste,smell en foam parameters van alle biertjes.
+% 1. het invullen van de taste,smell en foam parameters van alle biertjes. (gedaan)
 % 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn.
 % 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!!
 % 3. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
@@ -72,8 +72,7 @@ bier(heineken_pils) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(heineken_brewery),
     foam(medium),
     region(holland).
@@ -84,8 +83,7 @@ bier(heineken_pils_0) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(heineken_brewery),
     foam(medium),
     region(holland).
@@ -96,8 +94,7 @@ bier(bavaria_pils) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(bavaria_brewery),
     foam(medium),
     region(holland).
@@ -108,8 +105,7 @@ bier(hertog_jan_pils) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(hertog_jan_brewery),
     foam(medium),
     region(holland).
@@ -120,8 +116,7 @@ bier(grolsch_herfstbok):-
     clarity(low_transparency),
     bitterness(medium),
     season(autumn),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(grolsch_brewery),
     foam(low),
     region(holland).
@@ -132,8 +127,7 @@ bier(grolsch_lentebok):-
     clarity(low_transparency),
     bitterness(medium),
     season(spring),
-    % taste(),
-    % smell(),
+    taste(sweet),     
     brewery(grolsch_brewery),
     foam(low),
     region(holland).
@@ -144,8 +138,7 @@ bier(guinness_ale):-
     clarity(low_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(guinness_brewery),
     foam(low),
     region(ireland).
@@ -156,8 +149,7 @@ bier(de_klok_pils):-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(de_klok_brewery),
     foam(medium),
     region(holland).
@@ -168,8 +160,7 @@ bier(duvel):-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(duvel_brewery),
     foam(high),
     region(belgium).
@@ -180,8 +171,7 @@ bier(lindemans_kriek) :-
     clarity(low_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(sweet),     
     brewery(lindemans),
     foam(low),
     region(belgium).
@@ -192,8 +182,7 @@ bier(neude_wit) :-
     clarity(medium_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(neude_bier),
     foam(medium),
     region(holland).
@@ -204,8 +193,7 @@ bier(kwak) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(bosteels),
     foam(medium),
     region(belgium).
@@ -216,8 +204,7 @@ bier(amstel_radler) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(amstel),
     foam(little),
     region(holland).
@@ -228,8 +215,7 @@ bier(grolsch_kanon) :-
     clarity(medium_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    % taste(),     
     brewery(grolsch_brewery),
     foam(medium),
     region(holland).
@@ -240,8 +226,7 @@ bier(hertog_jan_weizener) :-
     clarity(medium_transparency),
     bitterness(high),
     season(summer),
-    % taste(),
-    % smell(),
+    % taste(),     
     brewery(hertog_jan_brewery),
     foam(little),
     region(holland).
@@ -252,8 +237,7 @@ bier(achel_extra_blond) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(achel),
     foam(medium),
     region(belgium).
@@ -264,37 +248,32 @@ bier(achel_extra_bruin) :-
     clarity(low_transparency),
     bitterness(high),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(achel),
     foam(high),
     region(belgium).
 
-%van welk merk is deze?
-%bier(old_ale) :-
-%    alcohol(medium_alcohol),
-%    colour(dark),
-%    clarity(medium_transparency),
-%    bitterness(medium),
-%    season(winter),
-%    taste(),
-%    smell(),
-%    brewery(),
-%    foam(),
-%    region(england).
+bier(adnams_old_ale) :-
+    alcohol(medium_alcohol),
+    colour(dark),
+    clarity(medium_transparency),
+    bitterness(medium),
+    season(winter),
+    taste(bitter),
+    brewery(adnams),
+    foam(medium),
+    region(england).
 
-%same voor deze
-%bier(bières_de_noël) :-
-%    alcohol(high_alcohol),
-%    colour(dark),
-%    clarity(high_transparency),
-%    bitterness(high),
-%    season(winter),
-%    taste(),
-%    smell(),
-%    brewery(),
-%    foam(),
-%    region(france).
+bier(schutzenberger_bières_de_noël) :-
+    alcohol(high_alcohol),
+    colour(dark),
+    clarity(high_transparency),
+    bitterness(high),
+    season(winter),
+    taste(sweet),
+    brewery(schutzenberger),
+    foam(little),
+    region(france).
 
 bier(anchor_porter) :-
     alcohol(medium_alcohol),
@@ -302,8 +281,7 @@ bier(anchor_porter) :-
     clarity(medium_transparency),
     bitterness(low),
     season(winter),
-    % taste(),
-    % smell(),
+    taste(sweet),     
     brewery(anchor),
     foam(medium),
     region(england).
@@ -314,8 +292,7 @@ bier(straffe_hendrik_quadrupel) :-
     clarity(low_transparency),
     bitterness(high),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(straffe_hendrik),
     foam(high),
     region(belgium).
@@ -326,8 +303,7 @@ bier(speciale_palm) :-
     clarity(high_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(fruity),     
     brewery(palm),
     foam(medium),
     region(belgium).
@@ -338,8 +314,7 @@ bier(desperados) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(heineken_brewery),
     foam(little),
     region(mexico).
@@ -350,8 +325,7 @@ bier(corona) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(corona),
     foam(little),
     region(mexico).
@@ -362,8 +336,7 @@ bier(boon_geuze) :-
     clarity(high_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(sweet),     
     brewery(boon),
     foam(medium),
     region(belgium).
@@ -374,8 +347,7 @@ bier(vedett_extra_white) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(vedett),
     foam(medium),
     region(belgium).
@@ -386,8 +358,7 @@ bier(kasteel_donker) :-
     clarity(high_transparency),
     bitterness(high),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(kasteel),
     foam(high),
     region(belgium).
@@ -398,8 +369,7 @@ bier(chimay_blauw) :-
     clarity(low_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(chimay),
     foam(medium),
     region(belgium).
@@ -410,8 +380,7 @@ bier(chimay_tripel_wit) :-
     clarity(high_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(chimay),
     foam(medium),
     region(belgium).
@@ -422,8 +391,7 @@ bier(ij_natte) :-
     clarity(medium_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(brouwerij_t_IJ),
     foam(medium),
     region(belgium).
@@ -434,8 +402,7 @@ bier(hertog_jan_lentebock) :-
     clarity(low_transparency),
     bitterness(medium),
     season(spring),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(hertog_jan_brewery),
     foam(low),
     region(holland).
@@ -446,8 +413,7 @@ bier(bax_rokkenjager) :-
     clarity(medium_transparency),
     bitterness(medium),
     season(spring),
-    % taste(),
-    % smell(),
+    taste(sweet),     
     brewery(bax),
     foam(medium),
     region(holland).
@@ -458,8 +424,7 @@ bier(gulpener_ijsbock) :-
     clarity(medium_transparency),
     bitterness(low),
     season(winter),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(gulpener),
     foam(medium),
     region(holland).
@@ -470,8 +435,7 @@ bier(brewdog_dead_pony_club) :-
     clarity(high_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(fruity),     
     brewery(brewdog),
     foam(medium),
     region(california).
@@ -482,8 +446,7 @@ bier(brand_session_india_pale_ale) :-
     clarity(medium_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(fruity),     
     brewery(brand),
     foam(low),
     region(california).
@@ -494,8 +457,7 @@ bier(punk_ipa_pale_ale) :-
     clarity(high_transparency),
     bitterness(medium),
     season(none),
-    % taste(),
-    % smell(),
+    taste(fruity),     
     brewery(brewdog),
     foam(low),
     region(california).
@@ -506,8 +468,7 @@ bier(guinness_stout_original) :-
     clarity(medium_transparency),
     bitterness(low),
     season(none),
-    % taste(),
-    % smell(),
+    taste(bitter),     
     brewery(guinness_brewery),
     foam(low),
     region(ireland).
@@ -518,8 +479,7 @@ bier(apple_bandit_cider_crisp_apple) :-
     clarity(high_transparency),
     bitterness(low),
     season(summer),
-    % taste(),
-    % smell(),
+    taste(refreshing),     
     brewery(apple_bandit),
     foam(low),
     region(holland).
@@ -530,6 +490,7 @@ question(colour):- write('What colour would you like your beer to have?'),nl.
 question(clarity):- write('Would you like a transparent beer?'),nl.
 question(bitterness):- write('would you like a bitter beer?'),nl.
 question(season):- write('For which season would you like an appropriate beer?'),nl.
+question(taste):- write('Which general taste do desire in your beer?'),nl
 question(region) :- write('From which region would you like a beer?'),nl.
 question(brewery):- write('From which brewery would you like a beer?'),nl.
 %smell, werkt nu niet niet omdat de biertjes geen smell property hebben.-> deze vraag is echt wack
@@ -555,6 +516,11 @@ answer(autumn):- write('Autumn').
 answer(spring):- write('Spring').
 answer(winter):- write('Winter').
 answer(none):- write('None').
+%taste 
+answer(bitter):- write('Bitter').
+answer(fruity):- write('Fruity').
+answer(refreshing):- write('Refreshing').
+answer(sweet):- write('Sweet').
 %countries/regions
 answer(holland):- write('Holland').
 answer(belgium):- write('Belgium').
@@ -577,6 +543,8 @@ answer(bosteels):- write('Bosteels').
 answer(amstel):- write('Amstel brouwerij').
 answer(achel):- write('Achel').
 answer(anchor):- write('Anchor').
+answer(adnans):- write('Adnans').
+answer(schutzenberger):- write('Schutzenberger').
 answer(straffe_hendrik):- write('Straffe Hendrik').
 answer(palm):- write('Palm').
 answer(corona):- write('Corona').
@@ -634,30 +602,23 @@ region(Answer) :-
 \+ progress(region, _),
   ask(region, Answer, [holland,belgium,ireland,france,california,mexico,england]).
 
-%onderstaande is gecomment omdat de smell,foam en taste parameters nog niet zijn ingevuld
-%  smell(Answer) :-
-%  progress(smell,Answer).
-%smell(Answer) :-
-%\+ progress(smell, _),
-%  ask(smell, Answer, [L smells]).
-
 foam(Answer) :-
  progress(foam,Answer).
 foam(Answer) :-
 \+ progress(foam, _),
  ask(foam, Answer, [low,medium,high]).
 
-%taste(Answer) :-
-%  progress(taste,Answer).
-%taste(Answer) :-
-%\+ progress(taste, _),
-%  ask(taste, Answer, [L taste]).
+taste(Answer) :-
+  progress(taste,Answer).
+taste(Answer) :-
+\+ progress(taste, _),
+  ask(taste, Answer, [bitter,fruity,refreshing,sweet]).
 
 brewery(Answer) :-
 progress(brewery,Answer).
 brewery(Answer) :-
 \+ progress(brewery, _),
-  ask(brewery, Answer,[achel,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,neude_bier,palm,straffe_hendrik,vedett]).
+  ask(brewery, Answer,[achel,adnams,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,neude_bier,palm,schutzenberger,straffe_hendrik,vedett]).
 
   % [H|T] is the Choices list, Index is the index of H in Choices
 answers([], _).
