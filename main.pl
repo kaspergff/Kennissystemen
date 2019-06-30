@@ -1,3 +1,10 @@
+% authors
+% Kasper de Graaff 6281427
+% Stan Twilt 6240399
+% Stefan vd Pijl 6201202
+
+ 
+
 %main function
 main :- intro, reset_answers, find_beer(Bier),outro(Bier).
 %intro function
