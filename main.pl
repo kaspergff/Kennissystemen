@@ -1,8 +1,6 @@
 
 
 %TO DO
-% allereerst: check ff de 'old_ale' & 'bières_de_noël' daar staan wat comments bij.
-% 1. het invullen van de taste,smell en foam parameters van alle biertjes. (gedaan)
 % 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn.
 % 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!!
 % 3. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
@@ -16,7 +14,7 @@
 %    enz....
 
 
-main :- intro, reset_answers, find_beer(Bier),outro(Bier).%,getdetails(X).
+main :- intro, reset_answers, find_beer(Bier),outro(Bier).
 intro :-
   write('welcome to the beer suggestion program'), nl,
   write('To answer, input the number shown next to each answer, followed by a dot (.).'),nl,
@@ -24,14 +22,6 @@ intro :-
   write('If you want to go back to the previous question write "go_back(Bier)." in the console.'),nl,
   write('This does not work once a beer has been found, please re enter "main." to start over.'),nl.
 
-%getdetails(X):-
-% write(alcohol(bier(X))),nl,
-% write(colour(bier(X))),nl,
-% write(clarity(bier(X))),nl,
-% write(bitterness(bier(X))),nl,
-% write(region(bier(X))),nl,
-% write(season(bier(X))),nl,
-% write(brewery(bier(X))).
 
 reset_answers :-
   retract(progress(_, _)),
@@ -46,7 +36,8 @@ go_back(Bier) :-
     outro(Bier).
 
 find_beer(Bier) :-
-  bier(Bier), !.:- dynamic(progress/2).
+  bier(Bier), !.
+  :- dynamic(progress/2).
 
 outro(Bier) :-
   write('Based on your answers we propose the following beer:'),nl,nl,
@@ -490,7 +481,7 @@ question(colour):- write('What colour would you like your beer to have?'),nl.
 question(clarity):- write('Would you like a transparent beer?'),nl.
 question(bitterness):- write('would you like a bitter beer?'),nl.
 question(season):- write('For which season would you like an appropriate beer?'),nl.
-question(taste):- write('Which general taste do desire in your beer?'),nl
+question(taste):- write('Which general taste do desire in your beer?'),nl.
 question(region) :- write('From which region would you like a beer?'),nl.
 question(brewery):- write('From which brewery would you like a beer?'),nl.
 %smell, werkt nu niet niet omdat de biertjes geen smell property hebben.-> deze vraag is echt wack
@@ -543,7 +534,7 @@ answer(bosteels):- write('Bosteels').
 answer(amstel):- write('Amstel brouwerij').
 answer(achel):- write('Achel').
 answer(anchor):- write('Anchor').
-answer(adnans):- write('Adnans').
+answer(adnams):- write('Adnams').
 answer(schutzenberger):- write('Schutzenberger').
 answer(straffe_hendrik):- write('Straffe Hendrik').
 answer(palm):- write('Palm').
@@ -644,7 +635,7 @@ describe(bavaria_pils):- write('Bavaria pils'),nl.
 describe(achel_extra_blond):- write('Achel extra blond'),nl.
 describe(achel_extra_bruin):- write('Achel extra bruin'),nl.
 describe(old_ale):- write('Old ale'),nl.
-describe(bières_de_noël):- write('Bières de noël'),nl.
+describe(schutzenberger_bières_de_noël):- write('Bières de noël'),nl.
 describe(anchor_porter):- write('Anchor porter'),nl.
 describe(straffe_hendrik_quadrupel):- write('Straffe hendrik quadrupel'),nl.
 describe(speciale_palm):- write('Speciale palm'),nl.
