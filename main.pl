@@ -1,8 +1,8 @@
 
 
 %TO DO
-% 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn.
-% 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!!
+% 1b.Zoek een andere manier om een beschrijving van een biertje te krijgen(kan bij describe), let er ff op dat alles in dezelfde taal moet zijn. Stannnn
+% 2. Voeg rules toe!!!! zou niet weten welke maar zonder rules is het geen kennissysteem!!! keen idee
 % 3. Begin met uitzoeken hoe we een enumeratie kunnen krijgen van alle brouwerijen ipv dat we die zelf handmatig moeten toevoegen aan de answers van de vraag, 
 %    en hoe we ervoor kunnen zorgen dat zodra er geen voorkeur voor is de vraag overgeslagen kan worden, dus dat elk biertje ofwel none of een bepaalde brouwerij heeft.
 % 4. Denk na over hoe we een functie kunnen maken om terug te gaan naar de vorige vraag als er geen bier uit een pad komt ben hier al eens mee bezig geweest in 'go_back'.
@@ -22,7 +22,6 @@ intro :-
   write('If you want to go back to the previous question write "go_back(Bier)." in the console.'),nl,
   write('This does not work once a beer has been found, please re enter "main." to start over.'),nl.
 
-
 reset_answers :-
   retract(progress(_, _)),
   fail.
@@ -30,6 +29,7 @@ reset_answers.
 
 %it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of questions.
 %once the questions are going in another order then before you know that there is not a beer that fullfills all requirements.
+
 go_back(Bier) :-
     retract(progress(X, _)),
     bier(Bier),
@@ -46,6 +46,30 @@ outro(Bier) :-
   write('Or restart the entire process by typing "main." in the constole.').
 
 
+parse(0, [H|_], H).
+parse(Index, [H|T], Response) :-
+  Index > 0,
+  NextIndex is Index - 1,
+  parse(NextIndex, T, Response).
+
+% creates a list of possible answers
+answers([], _).
+answers([H|T], Index) :-
+  write(Index), write(' '), answer(H), nl,
+  NextIndex is Index + 1,
+  answers(T, NextIndex).
+
+% Asks the Question to the user and saves the Answer
+ask(Question, Answer, Choices) :-
+    nl,
+  question(Question),
+    nl,
+  answers(Choices, 0),
+  read(Index),
+  parse(Index, Choices, Response),
+  asserta(progress(Question, Response)),
+  Response = Answer.
+
 %Bierelier....
 alcohol/1.
 colour/1.
@@ -54,7 +78,6 @@ bitterness/1.
 region/1.
 season/1.
 taste/1.
-smell/1.
 brewery/1.
 
 bier(heineken_pils) :-
@@ -206,7 +229,7 @@ bier(grolsch_kanon) :-
     clarity(medium_transparency),
     bitterness(medium),
     season(none),
-    % taste(),     
+    taste(bitter),     
     brewery(grolsch_brewery),
     foam(medium),
     region(holland).
@@ -217,7 +240,7 @@ bier(hertog_jan_weizener) :-
     clarity(medium_transparency),
     bitterness(high),
     season(summer),
-    % taste(),     
+    taste(refreshing),     
     brewery(hertog_jan_brewery),
     foam(little),
     region(holland).
@@ -255,7 +278,7 @@ bier(adnams_old_ale) :-
     foam(medium),
     region(england).
 
-bier(schutzenberger_bières_de_noël) :-
+bier(schutzenberger_bieres_de_noel) :-
     alcohol(high_alcohol),
     colour(dark),
     clarity(high_transparency),
@@ -611,17 +634,13 @@ brewery(Answer) :-
 \+ progress(brewery, _),
   ask(brewery, Answer,[achel,adnams,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,neude_bier,palm,schutzenberger,straffe_hendrik,vedett]).
 
-  % [H|T] is the Choices list, Index is the index of H in Choices
-answers([], _).
-answers([H|T], Index) :-
-  write(Index), write(' '), answer(H), nl,
-  NextIndex is Index + 1,
-  answers(T, NextIndex).
 %descriptions
 describe(heineken_pils):- write('Heineken pils'),nl.
 describe(heineken_pils_0) :- write('heineken pils 0.0'),nl.
 describe(grolsch_herfstbok):- write('Grolsch herfstbok'),nl.
 describe(grolsch_lentebok):- write('Grolsch lentebok'),nl.
+describe(hertog_jan_lentebock):- write('Hertog Jan lentebok'),nl.
+describe(hertog_jan_pils):- write('Hertog Jan pils')
 describe(grolsch_kanon):- write('Grolsch kanon'),nl.
 describe(guinness_ale):- write('Guinnes ale'),nl.
 describe(de_klok_pils):- write('De klok bier'),nl.
@@ -635,7 +654,7 @@ describe(bavaria_pils):- write('Bavaria pils'),nl.
 describe(achel_extra_blond):- write('Achel extra blond'),nl.
 describe(achel_extra_bruin):- write('Achel extra bruin'),nl.
 describe(old_ale):- write('Old ale'),nl.
-describe(schutzenberger_bières_de_noël):- write('Bières de noël'),nl.
+describe(schutzenberger_bieres_de_noel):- write('Bières de noël'),nl.
 describe(anchor_porter):- write('Anchor porter'),nl.
 describe(straffe_hendrik_quadrupel):- write('Straffe hendrik quadrupel'),nl.
 describe(speciale_palm):- write('Speciale palm'),nl.
@@ -656,19 +675,4 @@ describe(guinness_stout_original):- write('Guinness stout original'),nl.
 describe(apple_bandit_cider_crisp_apple):- write('Apple bandit cider crisp apple'),nl. 
 
 
-parse(0, [H|_], H).
-parse(Index, [H|T], Response) :-
-  Index > 0,
-  NextIndex is Index - 1,
-  parse(NextIndex, T, Response).
 
-% Asks the Question to the user and saves the Answer
-ask(Question, Answer, Choices) :-
-    nl,
-  question(Question),
-    nl,
-  answers(Choices, 0),
-  read(Index),
-  parse(Index, Choices, Response),
-  asserta(progress(Question, Response)),
-  Response = Answer.
