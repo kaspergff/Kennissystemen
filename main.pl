@@ -19,7 +19,10 @@
 main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(X).
 intro :-
   write('welcome to the beer suggestion program'), nl,
-  write('To answer, input the number shown next to each answer, followed by a dot (.)'), nl, nl.
+  write('To answer, input the number shown next to each answer, followed by a dot (.)'),nl,
+  write('If a certain beer cannot be found "false" will be shown in the console'),nl,
+  write('If you want to go back to the previous question write "go_back(Bier)" in the console'),nl,
+  write('This does not work once a beer has been found, please re enter "main." to start over '),nl.
 
 %getdetails(X):-
 % write(alcohol(bier(X))),nl,
@@ -35,12 +38,10 @@ reset_answers :-
   fail.
 reset_answers.
 
-% go_back(Bier,Question)
-%     retract(progress(Question, _)),
-%     question(Question),
-%     bier(Bier),
-%      \+ find_beer(Bier).
-
+%it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of questions.
+go_back(Bier) :-
+    retract(progress(X, _)),
+    find_beer(Bier).
 
 find_beer(Bier) :-
   bier(Bier), !.
@@ -534,8 +535,7 @@ question(brewery):- write('from which brewery would you like a beer?'),nl.
 %question(taste) :-write('what kind of taste would you like your beer to have?'),nl.
 %answers
 answer(low_alcohol):- write('low alcohol pecentage, 0.5-3%').
-answer(medium_alcohol):-write('medium a
-lcohol percentage, 3-7%').
+answer(medium_alcohol):-write('medium alcohol percentage, 3-7%').
 answer(high_alcohol):- write('high alcohol percentage, >7%').
 answer(low):- write('low').
 answer(medium):-write('medium').
