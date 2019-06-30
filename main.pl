@@ -659,12 +659,12 @@ brewery(Answer) :-
 \+ progress(brewery, _),
   ask(brewery, Answer,[achel,amstel,anchor,apple_bandit,bavaria_brewery,bax,boon,bosteels,brand,brewdog,brouwerij_t_IJ,chimay,corona,de_klok_brewery,duvel_brewery,grolsch_brewery,guinness_brewery,gulpener,heineken_brewery,hertog_jan_brewery,kasteel,lindemans,neude_bier,palm,straffe_hendrik,vedett]).
 
-  % [First|Rest] is the Choices list, Index is the index of First in Choices
+  % [H|T] is the Choices list, Index is the index of H in Choices
 answers([], _).
-answers([First|Rest], Index) :-
-  write(Index), write(' '), answer(First), nl,
+answers([H|T], Index) :-
+  write(Index), write(' '), answer(H), nl,
   NextIndex is Index + 1,
-  answers(Rest, NextIndex).
+  answers(T, NextIndex).
 %descriptions
 describe(heineken_pils):- write('Heineken pils'),nl.
 describe(heineken_pils_0) :- write('heineken pils 0.0'),nl.
@@ -703,13 +703,12 @@ describe(punk_ipa_pale_ale) :- write('Punk ipa pale ale'),nl.
 describe(guinness_stout_original):- write('Guinness stout original'),nl.
 describe(apple_bandit_cider_crisp_apple):- write('Apple bandit cider crisp apple'),nl. 
 
-% Parses an Index and returns a Response representing the "Indexth" element in
-% Choices (the [First|Rest] list)
-parse(0, [First|_], First).
-parse(Index, [First|Rest], Response) :-
+
+parse(0, [H|_], H).
+parse(Index, [H|T], Response) :-
   Index > 0,
   NextIndex is Index - 1,
-  parse(NextIndex, Rest, Response).
+  parse(NextIndex, T, Response).
 
 % Asks the Question to the user and saves the Answer
 ask(Question, Answer, Choices) :-
