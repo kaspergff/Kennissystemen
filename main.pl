@@ -16,13 +16,13 @@
 %    enz....
 
 
-main :- intro, reset_answers, find_beer(Bier),describe(Bier).%,getdetails(X).
+main :- intro, reset_answers, find_beer(Bier),outro(Bier).%,getdetails(X).
 intro :-
   write('welcome to the beer suggestion program'), nl,
-  write('To answer, input the number shown next to each answer, followed by a dot (.)'),nl,
-  write('If a certain beer cannot be found "false" will be shown in the console'),nl,
-  write('If you want to go back to the previous question write "go_back(Bier)" in the console'),nl,
-  write('This does not work once a beer has been found, please re enter "main." to start over '),nl.
+  write('To answer, input the number shown next to each answer, followed by a dot (.).'),nl,
+  write('If a certain beer cannot be found "false" will be shown in the console.'),nl,
+  write('If you want to go back to the previous question write "go_back(Bier)." in the console.'),nl,
+  write('This does not work once a beer has been found, please re enter "main." to start over.'),nl.
 
 %getdetails(X):-
 % write(alcohol(bier(X))),nl,
@@ -41,12 +41,20 @@ reset_answers.
 %it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of question
 go_back(Bier) :-
     retract(progress(X, _)),
-    find_beer(Bier).
+    bier(Bier),
+    outro(Bier).
 
 find_beer(Bier) :-
   bier(Bier), !.
 
   :- dynamic(progress/2).
+
+outro(Bier) :-
+  write('Based on your answers we propose the following beer:'),nl,nl,
+  describe(Bier),nl,
+  write('If this beer is not really what your looking for type "go_back_(Bier)." to go back one step.'),nl,
+  write('Or restart the entire process by typing "main." in the constole.').
+
 
 %Bierelier....
 alcohol/1.
@@ -522,32 +530,32 @@ question(alcohol):- write('How much alcohol do you want?'),nl.
 question(colour):- write('What colour would you like your beer to have?'),nl.
 question(clarity):- write('Would you like a transparent beer?'),nl.
 question(bitterness):- write('would you like a bitter beer?'),nl.
-question(season):- write('for which season would you like an appropriate beer?'),nl.
-question(region) :- write('from which region would you like a beer?'),nl.
-question(brewery):- write('from which brewery would you like a beer?'),nl.
+question(season):- write('For which season would you like an appropriate beer?'),nl.
+question(region) :- write('From which region would you like a beer?'),nl.
+question(brewery):- write('From which brewery would you like a beer?'),nl.
 %smell, werkt nu niet niet omdat de biertjes geen smell property hebben.-> deze vraag is echt wack
 %question(smell):- write('what smell do you prefer for your beer?'),nl.
-question(foam) :- write('how much foam would you like your beer to have?'),nl.
+question(foam) :- write('How much foam would you like your beer to have?'),nl.
 %taste, werkt nu niet niet omdat de biertjes geen taste property hebben.
 %question(taste) :-write('what kind of taste would you like your beer to have?'),nl.
 %answers
-answer(low_alcohol):- write('low alcohol pecentage, 0.5-3%').
-answer(medium_alcohol):-write('medium alcohol percentage, 3-7%').
-answer(high_alcohol):- write('high alcohol percentage, >7%').
-answer(low):- write('low').
-answer(medium):-write('medium').
-answer(high):- write('high').
-answer(red):- write('red').
-answer(light) :- write('light').
-answer(dark) :- write('dark').
-answer(high_transparency) :- write('high transparency').
-answer(medium_transparency) :- write('medium transparency').
-answer(low_transparency) :- write('low transparency').
-answer(summer):- write('summer').
-answer(autumn):- write('autumn').
-answer(spring):- write('spring').
-answer(winter):- write('winter').
-answer(none):- write('none').
+answer(low_alcohol):- write('Low alcohol pecentage, 0.5-3%').
+answer(medium_alcohol):-write('Medium alcohol percentage, 3-7%').
+answer(high_alcohol):- write('High alcohol percentage, >7%').
+answer(low):- write('Low').
+answer(medium):-write('Medium').
+answer(high):- write('High').
+answer(red):- write('Red').
+answer(light) :- write('Light').
+answer(dark) :- write('Dark').
+answer(high_transparency) :- write('High transparency').
+answer(medium_transparency) :- write('Medium transparency').
+answer(low_transparency) :- write('Low transparency').
+answer(summer):- write('Summer').
+answer(autumn):- write('Autumn').
+answer(spring):- write('Spring').
+answer(winter):- write('Winter').
+answer(none):- write('None').
 %countries/regions
 answer(holland):- write('Holland').
 answer(belgium):- write('Belgium').
