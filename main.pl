@@ -38,7 +38,7 @@ reset_answers :-
   fail.
 reset_answers.
 
-%it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of questions.
+%it is a known bug that this function cannot be used more than once in each iteration of main because the user can get stuck in a loop of question
 go_back(Bier) :-
     retract(progress(X, _)),
     find_beer(Bier).
@@ -68,7 +68,7 @@ bier(heineken_pils) :-
     % taste(),
     % smell(),
     brewery(heineken_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(heineken_pils_0) :-
@@ -80,7 +80,7 @@ bier(heineken_pils_0) :-
     % taste(),
     % smell(),
     brewery(heineken_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 	
 bier(bavaria_pils) :-
@@ -92,7 +92,7 @@ bier(bavaria_pils) :-
     % taste(),
     % smell(),
     brewery(bavaria_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(hertog_jan_pils) :-
@@ -104,7 +104,7 @@ bier(hertog_jan_pils) :-
     % taste(),
     % smell(),
     brewery(hertog_jan_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(grolsch_herfstbok):-
@@ -116,7 +116,7 @@ bier(grolsch_herfstbok):-
     % taste(),
     % smell(),
     brewery(grolsch_brewery),
-    % foam(),
+    foam(low),
     region(holland).
 
 bier(grolsch_lentebok):-
@@ -128,7 +128,7 @@ bier(grolsch_lentebok):-
     % taste(),
     % smell(),
     brewery(grolsch_brewery),
-    % foam(),
+    foam(low),
     region(holland).
 
 bier(guinness_ale):-
@@ -140,7 +140,7 @@ bier(guinness_ale):-
     % taste(),
     % smell(),
     brewery(guinness_brewery),
-    % foam(),
+    foam(low),
     region(ireland).
 
 bier(de_klok_pils):-
@@ -152,7 +152,7 @@ bier(de_klok_pils):-
     % taste(),
     % smell(),
     brewery(de_klok_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(duvel):-
@@ -164,7 +164,7 @@ bier(duvel):-
     % taste(),
     % smell(),
     brewery(duvel_brewery),
-    % foam(),
+    foam(high),
     region(belgium).
 
 bier(lindemans_kriek) :-
@@ -176,7 +176,7 @@ bier(lindemans_kriek) :-
     % taste(),
     % smell(),
     brewery(lindemans),
-    % foam(),
+    foam(low),
     region(belgium).
 
 bier(neude_wit) :-
@@ -188,7 +188,7 @@ bier(neude_wit) :-
     % taste(),
     % smell(),
     brewery(neude_bier),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(kwak) :-
@@ -200,7 +200,7 @@ bier(kwak) :-
     % taste(),
     % smell(),
     brewery(bosteels),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(amstel_radler) :-
@@ -212,7 +212,7 @@ bier(amstel_radler) :-
     % taste(),
     % smell(),
     brewery(amstel),
-    % foam(),
+    foam(little),
     region(holland).
 
 bier(grolsch_kanon) :-
@@ -224,7 +224,7 @@ bier(grolsch_kanon) :-
     % taste(),
     % smell(),
     brewery(grolsch_brewery),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(hertog_jan_weizener) :-
@@ -236,7 +236,7 @@ bier(hertog_jan_weizener) :-
     % taste(),
     % smell(),
     brewery(hertog_jan_brewery),
-    % foam(),
+    foam(little),
     region(holland).
 	
 bier(achel_extra_blond) :-
@@ -248,7 +248,7 @@ bier(achel_extra_blond) :-
     % taste(),
     % smell(),
     brewery(achel),
-    % foam(),
+    foam(medium),
     region(belgium).
 	
 bier(achel_extra_bruin) :-
@@ -260,7 +260,7 @@ bier(achel_extra_bruin) :-
     % taste(),
     % smell(),
     brewery(achel),
-    % foam(),
+    foam(high),
     region(belgium).
 
 %van welk merk is deze?
@@ -298,7 +298,7 @@ bier(anchor_porter) :-
     % taste(),
     % smell(),
     brewery(anchor),
-    % foam(),
+    foam(medium),
     region(england).
 
 bier(straffe_hendrik_quadrupel) :-
@@ -310,7 +310,7 @@ bier(straffe_hendrik_quadrupel) :-
     % taste(),
     % smell(),
     brewery(straffe_hendrik),
-    % foam(),
+    foam(high),
     region(belgium).
 
 bier(speciale_palm) :-
@@ -322,7 +322,7 @@ bier(speciale_palm) :-
     % taste(),
     % smell(),
     brewery(palm),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(desperados) :-
@@ -334,7 +334,7 @@ bier(desperados) :-
     % taste(),
     % smell(),
     brewery(heineken_brewery),
-    % foam(),
+    foam(little),
     region(mexico).
 
 bier(corona) :-
@@ -346,7 +346,7 @@ bier(corona) :-
     % taste(),
     % smell(),
     brewery(corona),
-    % foam(),
+    foam(little),
     region(mexico).
 
 bier(boon_geuze) :-
@@ -358,7 +358,7 @@ bier(boon_geuze) :-
     % taste(),
     % smell(),
     brewery(boon),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(vedett_extra_white) :-
@@ -370,7 +370,7 @@ bier(vedett_extra_white) :-
     % taste(),
     % smell(),
     brewery(vedett),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(kasteel_donker) :-
@@ -382,7 +382,7 @@ bier(kasteel_donker) :-
     % taste(),
     % smell(),
     brewery(kasteel),
-    % foam(),
+    foam(high),
     region(belgium).
 
 bier(chimay_blauw) :-
@@ -394,7 +394,7 @@ bier(chimay_blauw) :-
     % taste(),
     % smell(),
     brewery(chimay),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(chimay_tripel_wit) :-
@@ -406,7 +406,7 @@ bier(chimay_tripel_wit) :-
     % taste(),
     % smell(),
     brewery(chimay),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(ij_natte) :-
@@ -418,7 +418,7 @@ bier(ij_natte) :-
     % taste(),
     % smell(),
     brewery(brouwerij_t_IJ),
-    % foam(),
+    foam(medium),
     region(belgium).
 
 bier(hertog_jan_lentebock) :-
@@ -430,7 +430,7 @@ bier(hertog_jan_lentebock) :-
     % taste(),
     % smell(),
     brewery(hertog_jan_brewery),
-    % foam(),
+    foam(low),
     region(holland).
 
 bier(bax_rokkenjager) :-
@@ -442,7 +442,7 @@ bier(bax_rokkenjager) :-
     % taste(),
     % smell(),
     brewery(bax),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(gulpener_ijsbock) :-
@@ -454,7 +454,7 @@ bier(gulpener_ijsbock) :-
     % taste(),
     % smell(),
     brewery(gulpener),
-    % foam(),
+    foam(medium),
     region(holland).
 
 bier(brewdog_dead_pony_club) :-
@@ -465,8 +465,8 @@ bier(brewdog_dead_pony_club) :-
     season(none),
     % taste(),
     % smell(),
-    brewery(brewdog),%is dit de juiste brouwerij?
-    % foam(),
+    brewery(brewdog),
+    foam(medium),
     region(california).
 
 bier(brand_session_india_pale_ale) :-
@@ -478,7 +478,7 @@ bier(brand_session_india_pale_ale) :-
     % taste(),
     % smell(),
     brewery(brand),
-    % foam(),
+    foam(low),
     region(california).
 
 bier(punk_ipa_pale_ale) :-
@@ -490,7 +490,7 @@ bier(punk_ipa_pale_ale) :-
     % taste(),
     % smell(),
     brewery(brewdog),
-    % foam(),
+    foam(low),
     region(california).
 
 bier(guinness_stout_original) :-
@@ -502,7 +502,7 @@ bier(guinness_stout_original) :-
     % taste(),
     % smell(),
     brewery(guinness_brewery),
-    % foam(),
+    foam(low),
     region(ireland).
 
 bier(apple_bandit_cider_crisp_apple) :-
@@ -514,23 +514,20 @@ bier(apple_bandit_cider_crisp_apple) :-
     % taste(),
     % smell(),
     brewery(apple_bandit),
-    % foam(),
+    foam(low),
     region(holland).
 
-%questions, dnek ff goed na over de volgorde van de vragen
+%questions, denk ff goed na over de volgorde van de vragen
 question(alcohol):- write('How much alcohol do you want?'),nl.
 question(colour):- write('What colour would you like your beer to have?'),nl.
 question(clarity):- write('Would you like a transparent beer?'),nl.
 question(bitterness):- write('would you like a bitter beer?'),nl.
 question(season):- write('for which season would you like an appropriate beer?'),nl.
 question(region) :- write('from which region would you like a beer?'),nl.
-%brewery, werkt nu niet niet omdat de biertjes geen brewery property hebben.
-%we moeten nadenken over hoe we een enumeratie van alle brouwerijen maken, anders moet alles handmatig.
 question(brewery):- write('from which brewery would you like a beer?'),nl.
 %smell, werkt nu niet niet omdat de biertjes geen smell property hebben.-> deze vraag is echt wack
 %question(smell):- write('what smell do you prefer for your beer?'),nl.
-%foam, werkt nu niet niet omdat de biertjes geen foam property hebben.
-%question(foam) :- write('how much foam would you like your beer to have?'),nl.
+question(foam) :- write('how much foam would you like your beer to have?'),nl.
 %taste, werkt nu niet niet omdat de biertjes geen taste property hebben.
 %question(taste) :-write('what kind of taste would you like your beer to have?'),nl.
 %answers
@@ -637,11 +634,11 @@ region(Answer) :-
 %\+ progress(smell, _),
 %  ask(smell, Answer, [L smells]).
 
-%foam(Answer) :-
-%  progress(foam,Answer).
-%foam(Answer) :-
-%\+ progress(foam, _),
-%  ask(foam, Answer, [L foam]).
+foam(Answer) :-
+ progress(foam,Answer).
+foam(Answer) :-
+\+ progress(foam, _),
+ ask(foam, Answer, [low,medium,high]).
 
 %taste(Answer) :-
 %  progress(taste,Answer).
